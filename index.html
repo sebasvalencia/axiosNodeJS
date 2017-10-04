@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>Ejemplo de axios</title>
+</head>
+<script>
+    function getTelefonos(){
+        axios.get('telefonos')
+        .then(function(response){
+            response.data.forEach(function(elemento){                
+                console.log(`Nombre del telefono: ${elemento.nombre}, precio: ${elemento.precio}`);
+            });
+        })
+        .catch(function(err){
+            console.log(`Error listando: ${err}`);
+        })
+    }
+
+    function actualizarTelefono(){
+        axios.put('telefonos/iphone',{
+            nombre:"iphone",
+            precio:100
+        }).then(function(response){
+            console.log(`Se actualizo el elemento ${response.data}`);
+        })
+        .catch(function(err){
+            console.log(`Error actualizando: ${err}`);
+        })
+    }
+</script>
+<body>
+    <input type="button" value="Listar" onclick="getTelefonos()"/>
+    <input type="button" value="Actualizar" onclick="actualizarTelefono()"/>
+</body>
+</html>
