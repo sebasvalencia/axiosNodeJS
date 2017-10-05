@@ -8,8 +8,23 @@
     <title>Ejemplo de axios</title>
 </head>
 <script>
+
+    function getSaludo() {
+       axios.get('/saludo',{
+            params: {
+                nombre: 'Sebas'
+            }
+        })
+       .then(function(response){
+            console.log(response.data);
+       })
+       .catch(function(err){
+            console.log("errr");
+       })
+    }
+
     function getTelefonos(){
-        axios.get('telefonos')
+        axios.get('/telefonos')
         .then(function(response){
             response.data.forEach(function(elemento){                
                 console.log(`Nombre del telefono: ${elemento.nombre}, precio: ${elemento.precio}`);
@@ -35,5 +50,6 @@
 <body>
     <input type="button" value="Listar" onclick="getTelefonos()"/>
     <input type="button" value="Actualizar" onclick="actualizarTelefono()"/>
+    <input type="button" value="Saludar" onclick="getSaludo()"/>
 </body>
 </html>

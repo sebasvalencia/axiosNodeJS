@@ -18,7 +18,14 @@ var telefonos= [
 ];
 
 //GET
+app.get('/saludo', function(req, res){
+    var nombre = req.query.nombre;
+    res.send('Hola ' +nombre);
+});
+
+//GET
 app.get('/telefonos', function(req,res){
+    console.log("telefonos");
     res.send(telefonos);
 });
 
