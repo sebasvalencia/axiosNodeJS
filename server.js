@@ -29,6 +29,10 @@ app.get('/telefonos', function(req,res){
     res.send(telefonos);
 });
 
+app.post('/telefonos/insert', function(req, res){
+    telefonos.push(req.body.data);
+});
+
 //PUT
 app.put('/telefonos/:nombre', function(req,res){
     var indice = telefonos.findIndex(function(elemento){

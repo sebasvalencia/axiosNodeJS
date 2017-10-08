@@ -4,7 +4,7 @@
   "description": "Proyecto piloto para probar la libreria axios",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Sebastián Valencia",
@@ -12,6 +12,7 @@
   "dependencies": {
     "axios": "^0.16.2",
     "body-parser": "^1.18.2",
-    "express": "^4.16.1"
+    "express": "^4.16.1",
+    "nodemon": "^1.12.1"
   }
 }

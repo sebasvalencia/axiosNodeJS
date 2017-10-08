@@ -9,6 +9,20 @@
 </head>
 <script>
 
+    function postTelefono(){
+        axios.post('/telefonos/insert',{
+            data:{
+                nombre:'samsumg',
+                precio:'400'
+            }
+        }).then(function(response){
+            console.log("funciono");
+        }).catch(function(err){
+            console.log("no se pudo insertar");
+        })
+
+    }
+
     function getSaludo() {
        axios.get('/saludo',{
             params: {
@@ -51,5 +65,6 @@
     <input type="button" value="Listar" onclick="getTelefonos()"/>
     <input type="button" value="Actualizar" onclick="actualizarTelefono()"/>
     <input type="button" value="Saludar" onclick="getSaludo()"/>
+    <input type="button" value="Insertar" onclick="postTelefono()"/>
 </body>
 </html>
