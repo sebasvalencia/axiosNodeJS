@@ -18,10 +18,19 @@ var telefonos= [
 ];
 
 //GET
-app.get('/saludo', function(req, res){
+app.get('/telefonos/telefono', function(req, res){
     var nombre = req.query.nombre;
-    res.send('Hola ' +nombre);
+console.log("nombre",nombre);
+   var tel = telefonos.map((telefono)=>{
+        if(nombre === telefono.nombre){
+            return telefono;
+        }
+    });
+
+    res.send(tel);
 });
+
+
 
 //GET
 app.get('/telefonos', function(req,res){
@@ -29,6 +38,7 @@ app.get('/telefonos', function(req,res){
     res.send(telefonos);
 });
 
+//POST
 app.post('/telefonos/insert', function(req, res){
     telefonos.push(req.body.data);
 });
